@@ -23,7 +23,7 @@ public class EventServiceImpl implements EventService {
     public List<EventDto> findAllEvents() {
         ResponseEntity<EventDtoList> eventDtoListResponseEntity = restTemplate.getForEntity("http://localhost:8081/api/events", EventDtoList.class);
         EventDtoList eventDtoList = eventDtoListResponseEntity.getBody();
-        List<EventDto> events = eventDtoList.getEvents();
+        List<EventDto> events = eventDtoList.getEventList();
         return events;
     }
 }
