@@ -44,6 +44,6 @@ public class EventController {
     @PostMapping("/new")
     public String addEventForm(@ModelAttribute("event") Event event){
         eventService.addEvent(eventMapper.map(event));
-        return "addEvent";
+        return "redirect:/events/new";
     }
 }
