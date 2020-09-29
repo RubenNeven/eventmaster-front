@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface EventService {
    List<EventDto> findAllEvents();
+
+   void addEvent(EventDto eventDto);
 }

@@ -12,5 +12,5 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class EventDtoList {
-    List<EventDto> events;
+    List<EventDto> eventList;
 }
