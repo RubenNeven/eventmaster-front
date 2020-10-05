@@ -1,43 +1,67 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{~/css/bootstrap.css}"/>
+<link rel="stylesheet" href="../static/css/eventForm.css" th:href="@{~/css/eventForm.css}"/>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Event</title>
 </head>
-<body >
+<body>
 <div class="container">
     <div class="row">
         <div class="col-12">
             <!--/*@thymesVar id="event" type="com.eventmaster.frontend.model.Event"*/-->
             <form th:object="${event}" th:fragment="eventForm">
+
                 <div class="form-group row">
-                    <label class="col-3" for="eventName" >Event name:</label>
-                    <input th:field="${event.name}" class="col-9" type="text" id="eventName" placeholder="Event name">
+                    <label class="col-3" for="eventName">Event name:</label>
+                    <div class="col-9">
+                        <input  class="form-control" th:field="${event.name}" type="text" id="eventName"
+                               placeholder="Event name">
+                        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="errorMessage">Event name is required</span>
+                    </div>
                 </div>
 
                 <div class="form-group row">
                     <label class="col-3" for="eventPrice">Price:</label>
-                    <input th:field="${event.price}" class="col-9" type="text" id="eventPrice" placeholder="Price">
+                    <div class="col-9">
+                        <input class="form-control " th:field="${event.price}" type="text" id="eventPrice"
+                               placeholder="Price">
+                    </div>
                 </div>
 
                 <div class="form-group row">
                     <label class="col-3" for="eventLocation">Location:</label>
-                    <input th:field="${event.location}" class="col-9" type="text" id="eventLocation" placeholder="Location">
+                    <div class="col-9">
+                        <input class="form-control" th:field="${event.location}" type="text" id="eventLocation"
+                               placeholder="Location">
+                        <span th:if="${#fields.hasErrors('location')}" th:errors="*{location}" class="errorMessage">Event name is required</span>
+                    </div>
                 </div>
 
                 <div class="form-group row">
                     <label class="col-3">Date from/until:</label>
+
                     <div class="col-9">
                         <div class="row">
-                            <input th:field="${event.dateFrom}" class="col-6" type="datetime-local" id="dateFrom">
-                            <input th:field="${event.dateUntil}"  class="col-6" type="datetime-local" id="dateUntil">
+                            <div class="col-6">
+                                <input class="form-control" th:field="${event.dateFrom}" type="datetime-local"
+                                       id="dateFrom">
+                            </div>
+                            <div class="col-6">
+                                <input class="form-control" th:field="${event.dateUntil}" type="datetime-local"
+                                       id="dateUntil">
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="form-inline">
-                    <button type="submit" value="submit">Confirm</button>
+                <div class="form-group row">
+                    <div class="col-9 offset-3">
+                        <button class="btn btn-primary" type="submit" value="submit">Confirm</button>
+                        <button class="btn btn-outline-secondary">Cancel</button>
+                    </div>
                 </div>
             </form>
         </div>

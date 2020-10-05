@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{~/css/bootstrap.css}"/>
+<link rel="stylesheet" href="../static/css/eventForm.css" th:href="@{~/css/eventForm.css}"/>
+<link rel="stylesheet" href="../static/css/font-awesome/css/all.css" th:href="@{~/css/font-awesome/css/all.css}"
+      type="text/css"/>
 <head>
     <meta charset="UTF-8">
     <title>Add Event</title>
 </head>
 <body>
-<form th:insert="eventForm::eventForm" th:method="post"/>
+<div th:insert="navbar :: navbar"></div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <form th:insert="eventForm :: eventForm" th:method="post"/>
+        </div>
+    </div>
+</div>
 </body>
 </html>
