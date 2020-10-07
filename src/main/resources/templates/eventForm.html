@@ -8,7 +8,8 @@
     <title>Event</title>
 </head>
 <body>
-<!--/*@thymesVar id="categoryList" type="com.eventmaster.frontend.controller.event.dto.CategoryDtoList"*/-->
+
+<!--/*@thymesVar id="categories" type="com.eventmaster.frontend.controller.event.dto.CategoryDto"*/-->
 <!--/*@thymesVar id="event" type="com.eventmaster.frontend.model.Event"*/-->
 <div class="container">
     <div class="row">
@@ -43,10 +44,10 @@
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-3">Category;</label>
+                    <label class="col-3">Category:</label>
                     <div class="col-9">
-                        <select th:field="${event.category}">
-                            <option th:each="category : ${categoryList}"
+                        <select class="custom-select" th:field="${event.category}">
+                            <option th:each="category : ${categories}"
                                     th:text="${category.categoryName}"
                                     th:value="${category.id}"></option>
                         </select>
