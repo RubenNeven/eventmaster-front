@@ -5,6 +5,7 @@ import com.eventmaster.frontend.controller.event.dto.CategoryDtoList;
 import com.eventmaster.frontend.controller.event.dto.EventDto;
 import com.eventmaster.frontend.controller.event.dto.EventDtoList;
 import com.eventmaster.frontend.controller.event.mapper.EventMapper;
+import com.eventmaster.frontend.model.Category;
 import com.eventmaster.frontend.model.Event;
 import com.eventmaster.frontend.service.event.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,6 +51,15 @@ public class EventController {
         model.addAttribute("categories", eventService.findAllCategories());
         return "addEvent";
     }
+
+    @GetMapping("/categories")
+    public ResponseEntity<CategoryDtoList> findAllCategories() {
+        List<CategoryDto> categories = eventService.findAllCategories();
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(new CategoryDtoList(categories));
+    }
+
 
     @GetMapping("/events")
     public String eventDetails(Model model){
