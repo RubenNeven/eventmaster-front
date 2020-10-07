@@ -17,6 +17,7 @@ public class EventDto {
     private String name;
     private BigDecimal price;
     private String location;
+    private CategoryDto category;
     private LocalDateTime dateFrom;
     private LocalDateTime dateUntil;
 }

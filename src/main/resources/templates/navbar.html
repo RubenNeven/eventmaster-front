@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{~/css/bootstrap.css}"/>
-<link rel="stylesheet" href="../static/css/font-awesome/css/all.css" th:href="@{~/css/font-awesome/css/all.css}" type="text/css"/>
+<link rel="stylesheet" href="../static/css/font-awesome/css/all.css" th:href="@{~/css/font-awesome/css/all.css}"
+      type="text/css"/>
 <head>
     <meta charset="UTF-8">
     <title>Navbar</title>
 </head>
 <body>
 <nav class="navbar" th:fragment="navbar">
-    <img src="/images/logo.jpg" height="85" width="85" class="img-fluid">
-
+    <a href="/events">
+        <img src="/images/logo.jpg" height="85" width="85" class="img-fluid">
+    </a>
     <div class="nav-item">
-        <i class="fas fa-search fa-3x"></i>
-        <i class="fas fa-shopping-basket fa-3x"></i>
-        <i class="fa fa-3x fa-user"></i>
+        <i class="fas fa-shopping-basket fa-2x mx-3"></i>
+        <i class="fa fa-user fa-2x mx-3"></i>
     </div>
 </nav>
 </body>

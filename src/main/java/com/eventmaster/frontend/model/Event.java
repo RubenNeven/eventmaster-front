@@ -15,18 +15,19 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class Event {
     private Long id;
-
     @NotBlank(message = "Event name is required")
     @NotNull(message = "Event name is required")
     @Size(min = 1)
     private String name;
     private BigDecimal price;
-
     @NotBlank(message = "Location is required")
     @Size(min = 1, message = "Location is required")
     private String location;
+    private Category category;
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private LocalDateTime dateFrom;
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private LocalDateTime dateUntil;
+
+
 }

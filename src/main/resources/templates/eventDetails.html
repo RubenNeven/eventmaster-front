@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{~/css/bootstrap.css}"/>
+<link rel="stylesheet" href="../static/css/font-awesome/css/all.css" th:href="@{~/css/font-awesome/css/all.css}"
+      type="text/css"/>
+<head>
+    <meta charset="UTF-8">
+    <title>Events</title>
+</head>
+<body>
+<div th:insert="navbar :: navbar"></div>
+<div class="container">
+    <div class="list-group row">
+        <div class="list-group-item border border-secondary rounded col mb-3" th:each="event : ${events}">
+            <h1 th:text="${event.name}"></h1>
+            <p th:text="${event.location}"></p>
+            <p th:text="${event.category.categoryName}"></p>
+            <p th:text="'€'+${event.price}"></p>
+            <div class="form-inline">
+                <p th:text="${event.dateFrom.toLocalDate()} + ' ' +  ${event.dateFrom.toLocalTime()}"></p>
+                <p class="mx-3"
+                   th:text="${event.dateUntil.toLocalDate()} + ' ' + ${event.dateUntil.toLocalTime()}"></p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

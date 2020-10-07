@@ -1,5 +1,7 @@
 package com.eventmaster.frontend.controller.event.mapper;
+
 import com.eventmaster.frontend.controller.event.dto.EventDto;
+import com.eventmaster.frontend.controller.event.dto.EventDtoList;
 import com.eventmaster.frontend.model.Event;
 import org.springframework.stereotype.Component;
 
@@ -9,7 +11,7 @@ import java.util.stream.Collectors;
 @Component
 public class EventMapper {
 
-    public Event map (EventDto eventDto){
+    public Event map(EventDto eventDto) {
         return Event.builder()
                 .id(eventDto.getId())
                 .name(eventDto.getName())
@@ -20,7 +22,7 @@ public class EventMapper {
                 .build();
     }
 
-    public EventDto map (Event event){
+    public EventDto map(Event event) {
         return EventDto.builder()
                 .id(event.getId())
                 .name(event.getName())
@@ -31,4 +33,10 @@ public class EventMapper {
                 .build();
     }
 
+
+    public EventDtoList convertToEventDtoList(List<Event> events){
+        return EventDtoList.builder()
+                .eventList(events.stream().map(this::map).collect(Collectors.toList()))
+                .build();
+    }
 }

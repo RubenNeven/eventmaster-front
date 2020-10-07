@@ -4,14 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.stereotype.Component;
-
-import java.util.List;
 
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class EventDtoList {
-    List<EventDto> eventList;
+public class CategoryDto {
+    private Long id;
+    private String categoryName;
 }

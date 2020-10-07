@@ -1,5 +1,7 @@
 package com.eventmaster.frontend.service.event;
 
+import com.eventmaster.frontend.controller.event.dto.CategoryDto;
+import com.eventmaster.frontend.controller.event.dto.CategoryDtoList;
 import com.eventmaster.frontend.controller.event.dto.EventDto;
 import com.eventmaster.frontend.controller.event.dto.EventDtoList;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,5 +34,13 @@ public class EventServiceImpl implements EventService {
     @Override
     public void addEvent(EventDto eventDto) {
         restTemplate.postForEntity("http://localhost:8081/api/events", eventDto, EventDto.class);
+    }
+
+    @Override
+    public List<CategoryDto> findAllCategories() {
+        ResponseEntity<CategoryDtoList> categoryDtoListResponseEntity = restTemplate.getForEntity("http://localhost:8081/api/categories", CategoryDtoList.class);
+        CategoryDtoList categoryDtoList = categoryDtoListResponseEntity.getBody();
+        List<CategoryDto> categories = categoryDtoList.getCategories();
+        return categories;
     }
 }

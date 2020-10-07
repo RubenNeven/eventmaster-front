@@ -12,12 +12,12 @@
     <div class="row">
         <div class="col-12">
             <!--/*@thymesVar id="event" type="com.eventmaster.frontend.model.Event"*/-->
-            <form th:object="${event}" th:fragment="eventForm">
+            <form class="my-5" th:object="${event}" th:fragment="eventForm">
 
                 <div class="form-group row">
                     <label class="col-3" for="eventName">Event name:</label>
                     <div class="col-9">
-                        <input  class="form-control" th:field="${event.name}" type="text" id="eventName"
+                        <input class="form-control" th:field="${event.name}" type="text" id="eventName"
                                placeholder="Event name">
                         <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="errorMessage">Event name is required</span>
                     </div>
@@ -41,6 +41,18 @@
                 </div>
 
                 <div class="form-group row">
+                    <label class="col-3">Category;</label>
+                    <div class="col-9">
+                        <select th:field="${event.category}">
+                            <!--/*@thymesVar id="categoryList" type="com.eventmaster.frontend.controller.event.dto.CategoryDtoList"*/-->
+                            <option th:each="category : ${categoryList}"
+                                    th:text="${category.name}"
+                                    th:value="${category.id}"></option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row">
                     <label class="col-3">Date from/until:</label>
 
                     <div class="col-9">
@@ -56,6 +68,7 @@
                         </div>
                     </div>
                 </div>
+
 
                 <div class="form-group row">
                     <div class="col-9 offset-3">
